@@ -1,0 +1,71 @@
+
+.tabs-dates{
+   position: relative;
+   width: 180px;
+   float: left;
+   z-index: 20;
+   padding: 15px 5px 0px 5px;
+}
+
+/* tabs names */
+.expRadioLabel{
+   position: relative;
+   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+   background: rgba(140, 140, 140, 0.2);
+   display: block;
+   font-size: 13px;
+   cursor: pointer;
+   user-select: none;
+}
+
+/* Hover effect on tabs names */
+.expRadioLabel:hover{
+  background: rgba(255, 0, 0, 0.2);
+}
+
+/* Content area for tabs */
+.tab-content{
+   position: relative;
+   width: calc(100% - 180px);
+   padding: 15px 35px 0px 35px;
+   float: left;
+   box-sizing: border-box;
+   z-index: 19;
+   display: none;
+}
+
+img.tabs{
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 90%;
+    margin: 15px auto;
+}
+
+iframe.tabs{
+  display: block;
+  max-width: 90%;
+  margin: 15px auto;
+}
+
+ /* Hide input radio from users */
+.expRadioButton{
+  display: none;
+}
+ /* Show tab when input checked */
+.expRadioButton:checked + .tab-content{
+  display: block;
+  animation: slide 0.4s forwards;
+}
+
+/* Slide animation for tab contents */
+@keyframes slide{
+    from{
+        right: -10%;
+        opacity: 0;
+    }
+    to{
+        right: 0;
+        opacity: 1;
+    }
+}
