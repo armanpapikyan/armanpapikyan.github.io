@@ -115,6 +115,29 @@
 
 		}
 
+	// Experiences engagement
+		let startTime = new Date();
+		let contentID = "Default-About";
+
+		$('input[type=radio]').change(function() {
+
+			let currentTime = new Date();
+
+			// Previous content - report
+			const timeSpent = (currentTime - startTime) / 1000; // Time in seconds
+
+			gtag('event', 'menu_click', {
+				'event_category': 'Navigation',  		// Group related events
+				'event_selection_new': this.id,    		// Specific item clicked
+				'event_selection_previous': contentID,	// The previously active item
+				'event_previous_duration': timeSpent	// The previous items time
+			});
+
+			// New content - start measuring
+			contentID = this.id;
+			startTime = currentTime;
+		});
+
 	// Scrolly.
 		$('.scrolly').scrolly({
 			speed: 1000
